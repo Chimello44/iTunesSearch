@@ -60,7 +60,7 @@
     [celula.nome setText:filme.nome];
     [celula.tipo setText:@"Filme"];
     [celula.genero setText:filme.genero];
-    [celula.preco setText:[NSString stringWithFormat:@"Preço: %@", filme.preco]];
+    [celula.preco setText:[NSString stringWithFormat:@"%@", filme.preco]];
     return celula;
 }
 
@@ -73,6 +73,7 @@
     iTunesManager *itunes = [iTunesManager sharedInstance];
     midias = [itunes buscarMidias: _searchText.text];
     self.tableview.reloadData;
+    [_searchText resignFirstResponder];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
