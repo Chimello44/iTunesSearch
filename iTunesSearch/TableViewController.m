@@ -17,7 +17,11 @@
 
 @end
 
+
+
 @implementation TableViewController
+
+
 
 
 
@@ -33,7 +37,6 @@
 #warning Necessario para que a table view tenha um espaco em relacao ao topo, pois caso contrario o texto ficara atras da barra superior
     self.tableview.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableview.bounds.size.width, 15.f)];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -56,13 +59,23 @@
     
     [celula.nome setText:filme.nome];
     [celula.tipo setText:@"Filme"];
-    
+    [celula.genero setText:filme.genero];
+    [celula.preco setText:[NSString stringWithFormat:@"Preço: %@", filme.preco]];
     return celula;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70;
+    return 100;
 }
 
 
+- (IBAction)searchButton:(id)sender {
+    iTunesManager *itunes = [iTunesManager sharedInstance];
+    midias = [itunes buscarMidias: _searchText.text];
+    self.tableview.reloadData;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+        [_searchText resignFirstResponder];
+}
 @end
