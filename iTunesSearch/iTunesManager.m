@@ -7,7 +7,10 @@
 //
 
 #import "iTunesManager.h"
-#import "Entidades/Filme.h"
+#import "Filme.h"
+#import "Musica.h"
+#import "Podcast.h"
+#import "Ebook.h"
 
 @implementation iTunesManager
 
@@ -34,7 +37,7 @@ static bool isFirstAccess = YES;
         termo = @"";
     }
     
-    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&media=movie", termo];
+    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&media=all", termo];
     NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString:url]];
     
     NSError *error;
@@ -48,8 +51,20 @@ static bool isFirstAccess = YES;
     
     NSArray *resultados = [resultado objectForKey:@"results"];
     NSMutableArray *filmes = [[NSMutableArray alloc] init];
+    NSMutableArray *musicas =[[NSMutableArray alloc] init];
+    NSMutableArray *podcasts= [[NSMutableArray alloc] init];
+    NSMutableArray *ebooks= [[NSMutableArray alloc] init];
+    
+    NSString *type;
+    
+    Filme *filmao= [[Filme alloc]init];
+    filmao.nome=@"grande filme";
+    [filmes addObject:filmao];
     
     for (NSDictionary *item in resultados) {
+        
+        type=[item objectForKey:@"kind"];
+        if([type isEqualToString:@"featured-movie"]){
         Filme *filme = [[Filme alloc] init];
         [filme setNome:[item objectForKey:@"trackName"]];
         [filme setTrackId:[item objectForKey:@"trackId"]];
@@ -60,8 +75,41 @@ static bool isFirstAccess = YES;
         [filme setPreco:[item objectForKey:@"trackPrice"]];
         [filmes addObject:filme];
     }
+        else if([type isEqualToString:@"song"]){
+            Musica  *musica = [[Musica alloc] init];
+            [musica setNome:[item objectForKey:@"trackName"]];
+            [musica setTrackId:[item objectForKey:@"trackId"]];
+            [musica setArtista:[item objectForKey:@"artistName"]];
+            [musica setDuracao:[item objectForKey:@"trackTimeMillis"]];
+            [musica setGenero:[item objectForKey:@"primaryGenreName"]];
+            [musica setPais:[item objectForKey:@"country"]];
+            [musica setPreco:[item objectForKey:@"trackPrice"]];
+            
+            [musicas addObject:musica];
+            
+        }
+        else if([type isEqualToString:@"podcast"]){
+            Podcast  *podcast = [[Podcast alloc] init];
+            [podcast setNome:[item objectForKey:@"trackName"]];
+            [podcast setTrackId:[item objectForKey:@"trackId"]];
+            [podcast setArtista:[item objectForKey:@"artistName"]];
+            [podcast setPreco:[item objectForKey:@"trackPrice"]];
+            [podcasts addObject:podcast];
+            
+        }
+        else if([type isEqualToString:@"ebook"]){
+            Ebook  *ebook = [[Ebook alloc] init];
+            [ebook setNome:[item objectForKey:@"trackName"]];
+            [ebook setTrackId:[item objectForKey:@"trackId"]];
+            [ebook setArtista:[item objectForKey:@"artistName"]];
+            [ebook setPreco:[item objectForKey:@"trackPrice"]];
+            [ebooks addObject: ebook];
+        }
+        
+           }
+    NSArray *mid = [[NSArray alloc]initWithObjects:filmes,musicas,podcasts,ebooks, nil];
     
-    return filmes;
+    return mid;
 }
 
 

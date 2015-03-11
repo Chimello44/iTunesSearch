@@ -17,6 +17,9 @@
 		92C21CE11AAE76930052ABE6 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CDF1AAE76930052ABE6 /* TableViewCell.m */; };
 		92C21CE21AAE76930052ABE6 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92C21CE01AAE76930052ABE6 /* TableViewCell.xib */; };
 		92C21CE81AAE858E0052ABE6 /* Filme.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CE71AAE858E0052ABE6 /* Filme.m */; };
+		E8D671CF1AB0C70F0077A631 /* Podcast.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D671CE1AB0C70F0077A631 /* Podcast.m */; };
+		E8D671D21AB0C71C0077A631 /* Ebook.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D671D11AB0C71C0077A631 /* Ebook.m */; };
+		E8D671D51AB0C9D60077A631 /* Musica.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D671D41AB0C9D60077A631 /* Musica.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,12 @@
 		92C21CE01AAE76930052ABE6 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		92C21CE61AAE858E0052ABE6 /* Filme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filme.h; path = Entidades/Filme.h; sourceTree = "<group>"; };
 		92C21CE71AAE858E0052ABE6 /* Filme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Filme.m; path = Entidades/Filme.m; sourceTree = "<group>"; };
+		E8D671CD1AB0C70F0077A631 /* Podcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Podcast.h; sourceTree = "<group>"; };
+		E8D671CE1AB0C70F0077A631 /* Podcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Podcast.m; sourceTree = "<group>"; };
+		E8D671D01AB0C71C0077A631 /* Ebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ebook.h; sourceTree = "<group>"; };
+		E8D671D11AB0C71C0077A631 /* Ebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ebook.m; sourceTree = "<group>"; };
+		E8D671D31AB0C9D60077A631 /* Musica.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Musica.h; sourceTree = "<group>"; };
+		E8D671D41AB0C9D60077A631 /* Musica.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Musica.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +154,13 @@
 			isa = PBXGroup;
 			children = (
 				92C21CE61AAE858E0052ABE6 /* Filme.h */,
+				E8D671D31AB0C9D60077A631 /* Musica.h */,
+				E8D671D41AB0C9D60077A631 /* Musica.m */,
 				92C21CE71AAE858E0052ABE6 /* Filme.m */,
+				E8D671CD1AB0C70F0077A631 /* Podcast.h */,
+				E8D671CE1AB0C70F0077A631 /* Podcast.m */,
+				E8D671D01AB0C71C0077A631 /* Ebook.h */,
+				E8D671D11AB0C71C0077A631 /* Ebook.m */,
 			);
 			name = Entidades;
 			sourceTree = "<group>";
@@ -250,11 +265,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8D671D21AB0C71C0077A631 /* Ebook.m in Sources */,
 				92C21CBC1AAE757A0052ABE6 /* TableViewController.m in Sources */,
+				E8D671CF1AB0C70F0077A631 /* Podcast.m in Sources */,
 				92C21CDB1AAE75B30052ABE6 /* iTunesManager.m in Sources */,
 				92C21CB91AAE757A0052ABE6 /* AppDelegate.m in Sources */,
 				92C21CE81AAE858E0052ABE6 /* Filme.m in Sources */,
 				92C21CE11AAE76930052ABE6 /* TableViewCell.m in Sources */,
+				E8D671D51AB0C9D60077A631 /* Musica.m in Sources */,
 				92C21CB61AAE757A0052ABE6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

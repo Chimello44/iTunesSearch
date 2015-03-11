@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -132,6 +133,10 @@
                         <exclude reference="eLm-2L-FPP"/>
                     </mask>
                     <mask key="constraints">
+                        <exclude reference="R9E-t8-uw5"/>
+                        <exclude reference="Znc-kL-uFP"/>
+                        <exclude reference="tS1-AR-V3z"/>
+                        <exclude reference="xxv-Gk-sYw"/>
                         <exclude reference="0KY-34-M9g"/>
                         <exclude reference="48Z-r4-oyc"/>
                         <exclude reference="L7u-LR-2al"/>
@@ -142,10 +147,6 @@
                         <exclude reference="QKq-7l-gcz"/>
                         <exclude reference="gEO-nM-loZ"/>
                         <exclude reference="tmQ-rK-Jsc"/>
-                        <exclude reference="R9E-t8-uw5"/>
-                        <exclude reference="Znc-kL-uFP"/>
-                        <exclude reference="tS1-AR-V3z"/>
-                        <exclude reference="xxv-Gk-sYw"/>
                         <exclude reference="HmJ-Hc-Zdb"/>
                         <exclude reference="XkS-AT-dV1"/>
                         <exclude reference="Y7N-EQ-5XK"/>
@@ -156,6 +157,10 @@
                         <include reference="eLm-2L-FPP"/>
                     </mask>
                     <mask key="constraints">
+                        <include reference="R9E-t8-uw5"/>
+                        <include reference="Znc-kL-uFP"/>
+                        <include reference="tS1-AR-V3z"/>
+                        <include reference="xxv-Gk-sYw"/>
                         <include reference="0KY-34-M9g"/>
                         <include reference="48Z-r4-oyc"/>
                         <exclude reference="4i2-Zu-bkc"/>
@@ -177,10 +182,6 @@
                         <exclude reference="XbF-kq-iNm"/>
                         <include reference="gEO-nM-loZ"/>
                         <include reference="tmQ-rK-Jsc"/>
-                        <include reference="R9E-t8-uw5"/>
-                        <include reference="Znc-kL-uFP"/>
-                        <include reference="tS1-AR-V3z"/>
-                        <include reference="xxv-Gk-sYw"/>
                         <include reference="HmJ-Hc-Zdb"/>
                         <exclude reference="X9c-vW-TQk"/>
                         <include reference="XkS-AT-dV1"/>
