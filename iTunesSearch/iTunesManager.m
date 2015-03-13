@@ -37,7 +37,7 @@ static bool isFirstAccess = YES;
         termo = @"";
     }
     
-    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&media=all", termo];
+    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&limit=200", termo];
     NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString:url]];
     
     NSError *error;
@@ -57,23 +57,21 @@ static bool isFirstAccess = YES;
     
     NSString *type;
     
-    Filme *filmao= [[Filme alloc]init];
-    filmao.nome=@"grande filme";
-    [filmes addObject:filmao];
     
     for (NSDictionary *item in resultados) {
         
         type=[item objectForKey:@"kind"];
-        if([type isEqualToString:@"featured-movie"]){
-        Filme *filme = [[Filme alloc] init];
-        [filme setNome:[item objectForKey:@"trackName"]];
-        [filme setTrackId:[item objectForKey:@"trackId"]];
-        [filme setArtista:[item objectForKey:@"artistName"]];
-        [filme setDuracao:[item objectForKey:@"trackTimeMillis"]];
+        if([type isEqualToString:@"feature-movie"]){
+          Filme *filme = [[Filme alloc] init];
+          [filme setNome:[item objectForKey:@"trackName"]];
+          [filme setTrackId:[item objectForKey:@"trackId"]];
+          [filme setArtista:[item objectForKey:@"artistName"]];
+         [filme setDuracao:[item objectForKey:@"trackTimeMillis"]];
         [filme setGenero:[item objectForKey:@"primaryGenreName"]];
+            [filme setPreco:[item objectForKey:@"trackPrice"]];
         [filme setPais:[item objectForKey:@"country"]];
-        [filme setPreco:[item objectForKey:@"trackPrice"]];
-        [filmes addObject:filme];
+            [filme setImg:[item objectForKey:@"artworkUrl100"]];
+                       [filmes addObject:filme];
     }
         else if([type isEqualToString:@"song"]){
             Musica  *musica = [[Musica alloc] init];
@@ -84,6 +82,7 @@ static bool isFirstAccess = YES;
             [musica setGenero:[item objectForKey:@"primaryGenreName"]];
             [musica setPais:[item objectForKey:@"country"]];
             [musica setPreco:[item objectForKey:@"trackPrice"]];
+            [musica setImg:[item objectForKey:@"artworkUrl100"]];
             
             [musicas addObject:musica];
             
@@ -94,6 +93,7 @@ static bool isFirstAccess = YES;
             [podcast setTrackId:[item objectForKey:@"trackId"]];
             [podcast setArtista:[item objectForKey:@"artistName"]];
             [podcast setPreco:[item objectForKey:@"trackPrice"]];
+            [podcast setImg:[item objectForKey:@"artworkUrl100"]];
             [podcasts addObject:podcast];
             
         }
@@ -103,6 +103,7 @@ static bool isFirstAccess = YES;
             [ebook setTrackId:[item objectForKey:@"trackId"]];
             [ebook setArtista:[item objectForKey:@"artistName"]];
             [ebook setPreco:[item objectForKey:@"trackPrice"]];
+            [ebook setImg:[item objectForKey:@"artworkUrl100"]];
             [ebooks addObject: ebook];
         }
         

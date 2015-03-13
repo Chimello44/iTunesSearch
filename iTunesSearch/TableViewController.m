@@ -13,6 +13,7 @@
 #import "Musica.h"
 #import "Podcast.h"
 #import "Ebook.h"
+#import "DetailViewController.h"
 
 @interface TableViewController () {
     NSArray *midias;
@@ -35,24 +36,28 @@
     UINib *nib = [UINib nibWithNibName:@"TableViewCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     
-    iTunesManager *itunes = [iTunesManager sharedInstance];
+
     
-#warning Necessario para que a table view tenha um espaco em relacao ao topo, pois caso contrario o texto ficara atras da barra superior
-    self.tableview.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableview.bounds.size.width, 15.f)];
+  
 }
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarnin
+ {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DetailViewController *dnav =[[DetailViewController alloc]init];
+    [self.navigationController pushViewController:dnav animated:YES ];
+}
 #pragma mark - Metodos do UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+     return [midias count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [midias count];
+   
+    return [[midias objectAtIndex:section] count];
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -86,6 +91,7 @@ case 3: return @"Ebook";
                 [celula.tipo setText:@"Filme"];
                 [celula.genero setText:filme.genero];
                 [celula.preco setText:[NSString stringWithFormat:@"%@", filme.preco]];
+            [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:filme.img]]]];
             break;
             
         case 1:
@@ -94,6 +100,7 @@ case 3: return @"Ebook";
                 [celula.tipo setText:@"Musica"];
                 [celula.genero setText:musica.genero];
                 [celula.preco setText:[NSString stringWithFormat:@"%@", musica.preco]];
+            [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:musica.img]]]];
             break;
         case 2:
                 podcast=[mid objectAtIndex:row];
@@ -101,6 +108,7 @@ case 3: return @"Ebook";
                 [celula.tipo setText:@"podcast"];
                 [celula.genero setText:podcast.genero];
                 [celula.preco setText:[NSString stringWithFormat:@"%@", podcast.preco]];
+            [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:podcast.img]]]];
             break;
             
         case 3:
@@ -109,6 +117,7 @@ case 3: return @"Ebook";
             [celula.tipo setText:@"ebook"];
             [celula.genero setText:ebook.genero];
             [celula.preco setText:[NSString stringWithFormat:@"%@", ebook.preco]];
+            [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ebook.img]]]];
             break;
         default:
             break;
@@ -122,11 +131,17 @@ case 3: return @"Ebook";
 
 
 - (IBAction)searchButton:(id)sender {
-    iTunesManager *itunes = [iTunesManager sharedInstance];
-    midias = [itunes buscarMidias: _searchText.text];
-    NSLog(@"%lu",[midias[0] count]);
-    self.tableview.reloadData;
-    [_searchText resignFirstResponder];
+    _txtSearch=_searchText.text;
+    
+    _txtSearch=[_txtSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    [self search];
+}
+
+
+-(void)search{
+    iTunesManager *itunes=[iTunesManager sharedInstance];
+    midias=[itunes buscarMidias:_txtSearch];
+    [_tableview reloadData];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
