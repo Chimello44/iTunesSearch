@@ -82,7 +82,6 @@ case 3: return @"Ebook";
     Ebook *ebook;
     
     long row=[indexPath row];
-    
     switch (indexPath.section){
     
         case 0:
@@ -91,7 +90,8 @@ case 3: return @"Ebook";
                 [celula.tipo setText:@"Filme"];
                 [celula.genero setText:filme.genero];
                 [celula.preco setText:[NSString stringWithFormat:@"%@", filme.preco]];
-            [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:filme.img]]]];
+                [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:filme.img]]]];
+            
             break;
             
         case 1:
@@ -100,7 +100,7 @@ case 3: return @"Ebook";
                 [celula.tipo setText:@"Musica"];
                 [celula.genero setText:musica.genero];
                 [celula.preco setText:[NSString stringWithFormat:@"%@", musica.preco]];
-            [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:musica.img]]]];
+                [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:musica.img]]]];
             break;
         case 2:
                 podcast=[mid objectAtIndex:row];
@@ -112,6 +112,7 @@ case 3: return @"Ebook";
             break;
             
         case 3:
+        
             ebook=[mid objectAtIndex:row];
             [celula.nome setText:ebook.nome];
             [celula.tipo setText:@"ebook"];
@@ -132,7 +133,7 @@ case 3: return @"Ebook";
 
 - (IBAction)searchButton:(id)sender {
     _txtSearch=_searchText.text;
-    
+    //nomes compostos
     _txtSearch=[_txtSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     [self search];
 }
