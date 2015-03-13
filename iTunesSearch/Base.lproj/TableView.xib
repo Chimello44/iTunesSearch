@@ -21,28 +21,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-Q4-3o0">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="79" id="MDs-1i-ChC"/>
-                    </constraints>
-                    <state key="normal" title="search">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="MDs-1i-ChC"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="MDs-1i-ChC"/>
-                        </mask>
-                    </variation>
-                    <connections>
-                        <action selector="searchButton:" destination="-1" eventType="touchUpInside" id="iEX-qN-GoL"/>
-                    </connections>
-                </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jxD-Oj-5w3">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,54 +29,76 @@
                         <outlet property="delegate" destination="-1" id="bKk-b2-giw"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLn-Q4-3o0">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="105" id="LM4-eF-KgN"/>
+                    </constraints>
+                    <state key="normal" title="search">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="LM4-eF-KgN"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="LM4-eF-KgN"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="searchButton:" destination="-1" eventType="touchUpInside" id="iEX-qN-GoL"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="plJ-L3-9yo" firstAttribute="leading" secondItem="9zQ-hl-tuh" secondAttribute="leading" constant="16" id="2n7-wu-daD"/>
-                <constraint firstItem="jxD-Oj-5w3" firstAttribute="leading" secondItem="9zQ-hl-tuh" secondAttribute="leading" id="AnR-Ba-eAl"/>
-                <constraint firstItem="zLn-Q4-3o0" firstAttribute="leading" secondItem="plJ-L3-9yo" secondAttribute="trailing" constant="74" id="Lc1-jf-Lr8"/>
-                <constraint firstAttribute="trailing" secondItem="jxD-Oj-5w3" secondAttribute="trailing" id="NGk-jc-ldj"/>
-                <constraint firstAttribute="bottom" secondItem="jxD-Oj-5w3" secondAttribute="bottom" id="ONr-2S-8pX"/>
-                <constraint firstAttribute="trailing" secondItem="zLn-Q4-3o0" secondAttribute="trailing" constant="33" id="g56-4C-cYV"/>
-                <constraint firstItem="jxD-Oj-5w3" firstAttribute="top" secondItem="plJ-L3-9yo" secondAttribute="bottom" constant="18" id="hcX-hK-A10"/>
-                <constraint firstItem="plJ-L3-9yo" firstAttribute="top" secondItem="zLn-Q4-3o0" secondAttribute="top" id="jW7-ej-d8J"/>
-                <constraint firstItem="plJ-L3-9yo" firstAttribute="top" secondItem="9zQ-hl-tuh" secondAttribute="top" constant="91" id="swv-8K-YHi"/>
+                <constraint firstItem="jxD-Oj-5w3" firstAttribute="top" secondItem="plJ-L3-9yo" secondAttribute="bottom" constant="27" id="Evi-u7-Hrg"/>
+                <constraint firstAttribute="trailing" secondItem="zLn-Q4-3o0" secondAttribute="trailing" constant="17" id="KaS-2Q-rnb"/>
+                <constraint firstItem="plJ-L3-9yo" firstAttribute="top" secondItem="9zQ-hl-tuh" secondAttribute="top" constant="82" id="Xq9-YX-Hw1"/>
+                <constraint firstItem="jxD-Oj-5w3" firstAttribute="leading" secondItem="9zQ-hl-tuh" secondAttribute="leading" id="gRJ-0E-a6l"/>
+                <constraint firstItem="plJ-L3-9yo" firstAttribute="leading" secondItem="9zQ-hl-tuh" secondAttribute="leading" constant="23" id="giS-Ey-Wnw"/>
+                <constraint firstItem="zLn-Q4-3o0" firstAttribute="top" secondItem="plJ-L3-9yo" secondAttribute="top" id="gnx-2i-cod"/>
+                <constraint firstAttribute="bottom" secondItem="jxD-Oj-5w3" secondAttribute="bottom" id="lgy-bd-Kwe"/>
+                <constraint firstItem="zLn-Q4-3o0" firstAttribute="leading" secondItem="plJ-L3-9yo" secondAttribute="trailing" constant="46" id="pkp-GP-ocp"/>
+                <constraint firstAttribute="trailing" secondItem="jxD-Oj-5w3" secondAttribute="trailing" id="x9J-qz-88h"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="plJ-L3-9yo"/>
-                    <exclude reference="zLn-Q4-3o0"/>
                     <exclude reference="jxD-Oj-5w3"/>
+                    <exclude reference="zLn-Q4-3o0"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="2n7-wu-daD"/>
-                    <exclude reference="jW7-ej-d8J"/>
-                    <exclude reference="swv-8K-YHi"/>
-                    <exclude reference="AnR-Ba-eAl"/>
-                    <exclude reference="NGk-jc-ldj"/>
-                    <exclude reference="ONr-2S-8pX"/>
-                    <exclude reference="hcX-hK-A10"/>
-                    <exclude reference="Lc1-jf-Lr8"/>
-                    <exclude reference="g56-4C-cYV"/>
+                    <exclude reference="Xq9-YX-Hw1"/>
+                    <exclude reference="giS-Ey-Wnw"/>
+                    <exclude reference="Evi-u7-Hrg"/>
+                    <exclude reference="gRJ-0E-a6l"/>
+                    <exclude reference="lgy-bd-Kwe"/>
+                    <exclude reference="x9J-qz-88h"/>
+                    <exclude reference="KaS-2Q-rnb"/>
+                    <exclude reference="gnx-2i-cod"/>
+                    <exclude reference="pkp-GP-ocp"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
                     <include reference="plJ-L3-9yo"/>
-                    <include reference="zLn-Q4-3o0"/>
                     <include reference="jxD-Oj-5w3"/>
+                    <include reference="zLn-Q4-3o0"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="2n7-wu-daD"/>
-                    <include reference="jW7-ej-d8J"/>
-                    <include reference="swv-8K-YHi"/>
-                    <include reference="AnR-Ba-eAl"/>
-                    <include reference="NGk-jc-ldj"/>
-                    <include reference="ONr-2S-8pX"/>
-                    <include reference="hcX-hK-A10"/>
-                    <include reference="Lc1-jf-Lr8"/>
-                    <include reference="g56-4C-cYV"/>
+                    <include reference="Xq9-YX-Hw1"/>
+                    <include reference="giS-Ey-Wnw"/>
+                    <include reference="Evi-u7-Hrg"/>
+                    <include reference="gRJ-0E-a6l"/>
+                    <include reference="lgy-bd-Kwe"/>
+                    <include reference="x9J-qz-88h"/>
+                    <include reference="KaS-2Q-rnb"/>
+                    <include reference="gnx-2i-cod"/>
+                    <include reference="pkp-GP-ocp"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="234" y="509"/>

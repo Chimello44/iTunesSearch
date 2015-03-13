@@ -13,7 +13,7 @@
 #import "Musica.h"
 #import "Podcast.h"
 #import "Ebook.h"
-#import "DetailViewController.h"
+
 
 @interface TableViewController () {
     NSArray *midias;
@@ -48,7 +48,7 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailViewController *dnav =[[DetailViewController alloc]init];
-    [self.navigationController pushViewController:dnav animated:YES ];
+    [self.navigationController pushViewController:dnav animated:YES];
 }
 #pragma mark - Metodos do UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
